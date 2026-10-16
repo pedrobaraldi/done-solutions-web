@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Building2, ShieldCheck, Scale } from "lucide-react";
+import aboutContainers from "@/assets/about-containers.jpg";
 
 // Client logo imports
 import staphytLogo from "@/assets/clients/staphyt.png";
@@ -112,10 +113,10 @@ const clients = [
   { name: "Nanofert", logo: nanofertLogo },
 ];
 
-const AGENCIES_PER_PAGE_MOBILE = 2;
-const AGENCIES_PER_PAGE_DESKTOP = 3;
-const CLIENTS_PER_PAGE_MOBILE = 2;
-const CLIENTS_PER_PAGE_DESKTOP = 4;
+const AGENCIES_PER_PAGE_MOBILE = 3;
+const AGENCIES_PER_PAGE_DESKTOP = 5;
+const CLIENTS_PER_PAGE_MOBILE = 4;
+const CLIENTS_PER_PAGE_DESKTOP = 6;
 
 const Partners = () => {
   const [agencyPage, setAgencyPage] = useState(0);
@@ -163,71 +164,118 @@ const Partners = () => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-12 md:py-14 lg:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Atuação */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-10 lg:mb-14"
         >
-          <h2 className="font-display font-bold text-3xl text-highlight mb-10">
-            ATUAÇÃO
-          </h2>
-          
+          <div className="relative rounded-2xl overflow-hidden mb-6 lg:mb-8">
+            <img
+              src={aboutContainers}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/80 to-primary/55" />
+            <div className="relative z-10 px-5 py-7 md:px-8 md:py-9 lg:px-10 lg:py-10">
+              <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-2 lg:mb-3">
+                ATUAÇÃO
+              </h2>
+              <p className="text-primary-foreground/85 text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed mb-5 lg:mb-6">
+                Experiência junto aos principais órgãos reguladores e anuentes do comércio exterior,
+                com processos alinhados às exigências legais e operacionais.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-3 lg:gap-4">
+                {[
+                  {
+                    icon: Building2,
+                    title: "Órgãos anuentes",
+                    text: "DECEX, ANVISA, MAPA, IBAMA e mais.",
+                  },
+                  {
+                    icon: ShieldCheck,
+                    title: "Conformidade",
+                    text: "Tratamentos administrativos e licenças.",
+                  },
+                  {
+                    icon: Scale,
+                    title: "Regulação",
+                    text: "Acompanhamento normativo em cada operação.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="flex items-start gap-3 rounded-xl bg-primary-foreground/10 border border-primary-foreground/15 px-3.5 py-3 lg:px-4 lg:py-3.5"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gradient-gold flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-display font-semibold text-primary-foreground text-sm lg:text-base">
+                        {item.title}
+                      </p>
+                      <p className="text-primary-foreground/75 text-xs lg:text-sm leading-snug mt-0.5">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="relative">
-            {/* Navigation Arrows */}
             <button
               onClick={prevAgencyPage}
-              className="absolute -left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-6 z-10 w-8 h-8 md:w-10 md:h-10 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
+              className="absolute -left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-5 z-10 w-8 h-8 lg:w-11 lg:h-11 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
               aria-label="Anterior"
             >
-              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-foreground" />
-            </button>
-            
-            <button
-              onClick={nextAgencyPage}
-              className="absolute -right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-6 z-10 w-8 h-8 md:w-10 md:h-10 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-foreground" />
+              <ChevronLeft className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
             </button>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 px-8 md:px-16">
+            <button
+              onClick={nextAgencyPage}
+              className="absolute -right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-5 z-10 w-8 h-8 lg:w-11 lg:h-11 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Próximo"
+            >
+              <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+            </button>
+
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 lg:gap-6 px-8 md:px-12 lg:px-16">
               {visibleAgencies.map((agency, index) => (
                 <motion.div
                   key={`${agency.name}-${agencyPage}`}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-white rounded-xl p-4 md:p-8 flex flex-col items-center justify-center min-h-[120px] md:min-h-[220px]"
+                  transition={{ duration: 0.25, delay: index * 0.03 }}
+                  className="bg-white rounded-xl p-3 md:p-5 lg:p-8 flex items-center justify-center min-h-[80px] md:min-h-[120px] lg:min-h-[180px] border border-border/60"
                 >
                   {agency.logo ? (
-                    <img 
-                      src={agency.logo} 
+                    <img
+                      src={agency.logo}
                       alt={`Logo ${agency.name}`}
-                      className="max-h-24 md:max-h-44 w-full object-contain"
+                      className="max-h-14 md:max-h-24 lg:max-h-36 w-full object-contain"
                     />
                   ) : (
-                    <div className="w-full h-full bg-muted rounded flex items-center justify-center">
-                      <span className="font-display font-bold text-sm text-muted-foreground text-center px-2">
-                        {agency.name}
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs md:text-sm text-muted-foreground text-center px-1">
+                      {agency.name}
+                    </span>
                   )}
                 </motion.div>
               ))}
             </div>
 
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-1.5 lg:gap-2 mt-4 lg:mt-6">
               {Array.from({ length: totalAgencyPages }).map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setAgencyPage(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  className={`w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full transition-colors ${
                     idx === agencyPage ? "bg-highlight" : "bg-muted"
                   }`}
                   aria-label={`Página ${idx + 1}`}
@@ -239,67 +287,63 @@ const Partners = () => {
 
         {/* Clientes */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center"
         >
-          <h2 className="font-display font-bold text-3xl text-highlight mb-6">
+          <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-highlight mb-5 lg:mb-8">
             CLIENTES
           </h2>
-          
+
           <div className="relative">
-            {/* Navigation Arrows */}
             <button
               onClick={prevClientPage}
-              className="absolute -left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-6 z-10 w-8 h-8 md:w-10 md:h-10 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
+              className="absolute -left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-5 z-10 w-8 h-8 lg:w-11 lg:h-11 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
               aria-label="Anterior"
             >
-              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-foreground" />
-            </button>
-            
-            <button
-              onClick={nextClientPage}
-              className="absolute -right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-6 z-10 w-8 h-8 md:w-10 md:h-10 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-foreground" />
+              <ChevronLeft className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
             </button>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 px-8 md:px-12">
+            <button
+              onClick={nextClientPage}
+              className="absolute -right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-5 z-10 w-8 h-8 lg:w-11 lg:h-11 bg-card rounded-full shadow-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Próximo"
+            >
+              <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+            </button>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 lg:gap-5 px-8 md:px-12 lg:px-16">
               {visibleClients.map((client, index) => (
                 <motion.div
                   key={`${client.name}-${clientPage}`}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-card rounded-xl p-3 md:p-4 shadow-card border border-border flex items-center justify-center aspect-[3/2] hover:shadow-lg transition-shadow"
+                  transition={{ duration: 0.25, delay: index * 0.02 }}
+                  className="bg-card rounded-xl p-3 md:p-4 lg:p-5 shadow-card border border-border flex items-center justify-center aspect-[3/2] hover:shadow-md transition-shadow"
                 >
                   {client.logo ? (
                     <img
-                      src={client.logo} 
+                      src={client.logo}
                       alt={`Logo ${client.name}`}
-                      className="max-h-28 max-w-[90%] object-contain"
+                      className="max-h-16 md:max-h-20 lg:max-h-24 max-w-[92%] object-contain"
                     />
                   ) : (
-                    <div className="w-full h-full bg-muted rounded flex items-center justify-center">
-                      <span className="font-display font-semibold text-sm text-muted-foreground text-center px-2">
-                        {client.name}
-                      </span>
-                    </div>
+                    <span className="font-display font-semibold text-xs md:text-sm text-muted-foreground text-center px-1">
+                      {client.name}
+                    </span>
                   )}
                 </motion.div>
               ))}
             </div>
 
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-1.5 lg:gap-2 mt-4 lg:mt-6">
               {Array.from({ length: totalClientPages }).map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setClientPage(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  className={`w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full transition-colors ${
                     idx === clientPage ? "bg-highlight" : "bg-muted"
                   }`}
                   aria-label={`Página ${idx + 1}`}
