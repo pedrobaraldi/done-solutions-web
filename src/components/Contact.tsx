@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import ReCaptcha from "./ReCaptcha";
 
 const offices = [
   {
@@ -19,9 +20,17 @@ const Contact = () => {
     message: "",
   });
 
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    if (!captchaToken) {
+      alert("Por favor, confirme que você não é um robô antes de enviar.");
+      return;
+    }
+
+    console.log(formData, captchaToken);
   };
 
   return (
@@ -182,6 +191,8 @@ const Contact = () => {
                   />
                 </div>
 
+                <ReCaptcha onChange={setCaptchaToken} />
+
                 <Button type="submit" variant="gold" size="lg" className="w-full">
                   <Send className="w-5 h-5" />
                   Enviar Mensagem
@@ -329,6 +340,8 @@ const Contact = () => {
                     required
                   />
                 </div>
+
+                <ReCaptcha onChange={setCaptchaToken} />
 
                 <Button type="submit" variant="gold" size="lg" className="w-full">
                   <Send className="w-5 h-5" />
