@@ -177,7 +177,7 @@ const Partners = () => {
   const cards = t("partners.atuacao.cards", { returnObjects: true }) as { title: string; text: string }[];
 
   return (
-    <section className="py-20 md:py-24 lg:py-28 bg-background">
+    <section className="py-20 md:py-24 lg:py-28">
       <div className="container mx-auto px-4">
         {/* Atuação */}
         <motion.div

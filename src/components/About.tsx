@@ -12,7 +12,7 @@ const About = () => {
   const highlights = t("about.highlights", { returnObjects: true }) as { title: string; description: string }[];
 
   return (
-    <section id="sobre" className="py-24 lg:py-28 bg-background overflow-hidden">
+    <section id="sobre" className="py-24 lg:py-28 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
           <motion.div

@@ -4,8 +4,15 @@ import { Phone, Mail, MapPin, Linkedin, Instagram, MessageCircle, Facebook } fro
 import logoBranca from "@/assets/logo-branca.png";
 import { useTranslation } from "react-i18next";
 
+const LANGS = [
+  { code: "pt", flag: "br" },
+  { code: "en", flag: "us" },
+  { code: "es", flag: "es" },
+  { code: "zh", flag: "cn" },
+];
+
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -79,17 +86,46 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center">
-          <p className="text-primary-foreground/50 text-sm">
-            {t("footer.rights", { year: currentYear })}
-          </p>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-3 text-sm">
-            <Link to="/privacidade" className="text-primary-foreground/70 hover:text-accent transition-colors">
-              {t("footer.privacy")}
-            </Link>
-            <button type="button" onClick={openCookieSettings} className="text-primary-foreground/70 hover:text-accent transition-colors">
-              {t("footer.cookies")}
-            </button>
+        <div className="border-t border-primary-foreground/10 mt-10 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Copyright + links */}
+            <div className="text-center sm:text-left">
+              <p className="text-primary-foreground/50 text-sm">
+                {t("footer.rights", { year: currentYear })}
+              </p>
+              <div className="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-1 mt-2 text-sm">
+                <Link to="/privacidade" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  {t("footer.privacy")}
+                </Link>
+                <button type="button" onClick={openCookieSettings} className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  {t("footer.cookies")}
+                </button>
+              </div>
+            </div>
+
+            {/* Language flags */}
+            <div className="flex items-center gap-1.5">
+              {LANGS.map((lang) => {
+                const isActive = i18n.language === lang.code;
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={() => i18n.changeLanguage(lang.code)}
+                    aria-label={lang.code.toUpperCase()}
+                    className={`w-7 h-7 rounded-full overflow-hidden border transition-all duration-200 ${
+                      isActive
+                        ? "border-accent/70 opacity-100"
+                        : "border-primary-foreground/15 opacity-40 hover:opacity-70 hover:border-primary-foreground/30"
+                    }`}
+                  >
+                    <span
+                      className={`fi fi-${lang.flag} fis`}
+                      style={{ width: "100%", height: "100%", display: "block", backgroundSize: "cover" }}
+                    />
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

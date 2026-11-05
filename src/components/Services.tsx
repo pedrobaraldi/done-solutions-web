@@ -12,7 +12,7 @@ const Services = () => {
   const exportItems = t("services.export.items", { returnObjects: true }) as string[];
 
   return (
-    <section id="servicos" className="py-20 md:py-24 lg:py-28 bg-secondary">
+    <section id="servicos" className="py-20 md:py-24 lg:py-28">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

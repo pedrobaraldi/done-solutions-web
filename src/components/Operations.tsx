@@ -33,7 +33,7 @@ const Operations = () => {
   const Icon = TAB_ICONS[activeTab];
 
   return (
-    <section id="operacao" className="py-20 md:py-24 lg:py-28 bg-muted/50">
+    <section id="operacao" className="py-20 md:py-24 lg:py-28">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 lg:gap-6 mb-6 lg:mb-8">
           <motion.div
