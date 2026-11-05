@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "about": "Quiénes Somos",
+    "services": "Servicios",
+    "operation": "Cobertura",
+    "contact": "Contáctenos"
+  },
+  "hero": {
+    "badge": "Excelencia en Comercio Exterior",
+    "title": "La Estructura Más Completa, Eficiente y Calificada en",
+    "titleHighlight": "Comercio Internacional",
+    "cta1": "Solicitar Cotización",
+    "cta2": "Ver Servicios"
+  },
+  "about": {
+    "label": "Quiénes Somos",
+    "heading": "Logros en el",
+    "headingHighlight": "Mercado Internacional",
+    "p1": "<strong>Done Solutions</strong> es una empresa de asesoría y consultoría en Comercio Exterior. Contamos con una estructura completa, eficiente y altamente calificada para el comercio internacional, con amplio conocimiento operacional, logístico, tributario y aduanero.",
+    "p2": "Siempre marcando la diferencia en el mercado COMEX, con <strong>honestidad y transparencia</strong>, consolidando clientes alrededor del mundo con nuestra excelencia en atención personalizada.",
+    "p3": "Estamos preparados para planificar, orientar y detallar soluciones en operaciones directas de <strong>importación, exportación</strong> y operaciones para terceros.",
+    "imgAlt1": "Puerto con barcos y contenedores",
+    "imgAlt2": "Almacén logístico",
+    "imgAlt3": "Operación de carga aérea",
+    "bridge": {
+      "heading": "Estructura completa en cada etapa",
+      "description": "Del puerto al almacén, del flete aéreo a la documentación — presencia operacional en toda la cadena del comercio exterior."
+    },
+    "highlights": [
+      { "title": "Transporte Marítimo", "description": "Coordinación completa en puertos y operaciones de contenedores." },
+      { "title": "Logística Aduanera", "description": "Almacenamiento, documentación y seguimiento en cada etapa." },
+      { "title": "Carga Aérea", "description": "Agilidad con soporte regulatorio y rastreo." }
+    ]
+  },
+  "services": {
+    "heading": "Asesoría y Consultoría en Comercio Internacional",
+    "mainServices": [
+      "Obtención de licencias",
+      "Régimen Especial de Drawback y sus Actos Concesionarios",
+      "Orientación para registros en organismos reguladores",
+      "Clasificación arancelaria y planificación tributaria",
+      "Consultoría en Leyes, Decretos, Resoluciones e Instrucciones Normativas en operaciones de Comercio Internacional",
+      "Habilitación del sistema RADAR y sus modificaciones",
+      "Gestión y supervisión de los procesos administrativos"
+    ],
+    "focusAreas": [
+      { "title": "Consultoría regulatoria", "description": "Licencias, RADAR, Drawback y organismos autorizantes." },
+      { "title": "Importación completa", "description": "Desde la planificación tributaria hasta el despacho aduanero." },
+      { "title": "Exportación ágil", "description": "DU-E, certificados y seguimiento de embarque." }
+    ],
+    "desembaraco": {
+      "title": "Despacho Aduanero",
+      "items": [
+        "Análisis de clasificación fiscal (NCM), exenciones, suspensiones y reducciones tributarias",
+        "Verificación y orientación documental",
+        "Consulta del tratamiento administrativo para elaboración y emisión de licencia de importación (LI)",
+        "Cotizaciones de fletes internacionales aéreos, marítimos y terrestres",
+        "Coordinación logística de almacenamiento aduanero",
+        "Estructuración de costos para análisis financiero de la operación total",
+        "Emisión de Declaración de Depósito Aduanero (DA)",
+        "Emisión de Declaración de Importación (DI)",
+        "Emisión de borrador de facturas de importación",
+        "Cotizaciones de fletes nacionales",
+        "Rastreo de procesos y seguimiento diario"
+      ]
+    },
+    "export": {
+      "title": "Exportación",
+      "items": [
+        "Verificación y orientación documental",
+        "Cumplimiento de los tratamientos administrativos ante los organismos autorizantes",
+        "Emisión de Declaración Única de Exportación (DU-E)",
+        "Emisión de Certificado de Origen",
+        "Emisión de Certificado Fitosanitario",
+        "Certificado CNCA (Consejo Nacional de Cargadores de Angola)",
+        "Estructuración de costos para análisis financiero de la operación total",
+        "Seguimiento del embarque y cumplimiento del plazo",
+        "Cotizaciones de fletes internacionales aéreos, marítimos y terrestres",
+        "Emisión de borrador de facturas de exportación",
+        "Rastreo de procesos y seguimiento diario"
+      ]
+    }
+  },
+  "operations": {
+    "locaisLabel": "Lugares de operación",
+    "activePontos": "{{count}} puntos activos",
+    "tabs": {
+      "portos": {
+        "label": "Puertos",
+        "summary": "Cobertura nacional en los principales puertos para importación y exportación marítima."
+      },
+      "aeroportos": {
+        "label": "Aeropuertos",
+        "summary": "Agilidad en cargas aéreas con soporte documental y seguimiento diario."
+      },
+      "fronteiras": {
+        "label": "Fronteras",
+        "summary": "Operaciones en los principales pasos fronterizos de Brasil."
+      }
+    }
+  },
+  "partners": {
+    "atuacao": {
+      "title": "COBERTURA",
+      "description": "Experiencia con los principales organismos reguladores y autorizantes del comercio exterior brasileño, con procesos alineados a los requisitos legales y operacionales.",
+      "cards": [
+        { "title": "Organismos autorizantes", "text": "DECEX, ANVISA, MAPA, IBAMA y más." },
+        { "title": "Conformidad", "text": "Trámites administrativos y licencias." },
+        { "title": "Regulación", "text": "Seguimiento normativo en cada operación." }
+      ]
+    },
+    "agenciesLabel": "Organismos y agencias con que trabajamos",
+    "clientsTitle": "CLIENTES",
+    "clientsLabel": "Nuestros clientes"
+  },
+  "contact": {
+    "title": "Contacto",
+    "officeCity": "Done São Paulo",
+    "info": {
+      "title": "Información de Contacto",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "hours": "Horario",
+      "hoursValue": "Lun – Vie: 8h a 18h"
+    },
+    "form": {
+      "title": "Envíenos un Mensaje",
+      "name": "Nombre Completo",
+      "namePlaceholder": "Su nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "message": "Mensaje",
+      "messagePlaceholder": "¿Cómo podemos ayudarle?",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando..."
+    },
+    "toast": {
+      "success": "¡Mensaje enviado! Le responderemos en breve.",
+      "error": "No se pudo enviar el mensaje. Intente nuevamente o contáctenos por WhatsApp.",
+      "phoneError": "Número de teléfono inválido. Use código de área (11) 99999-9999 o formato internacional +1 415 555 2671."
+    }
+  },
+  "footer": {
+    "description": "Asesoría y consultoría en Comercio Exterior. Soluciones completas en importación, exportación y logística internacional para el agronegocio.",
+    "quickLinks": "Enlaces Rápidos",
+    "linkAbout": "Quiénes Somos",
+    "linkServices": "Servicios",
+    "linkOperation": "Cobertura",
+    "linkContact": "Contacto",
+    "office": "Oficina",
+    "rights": "© {{year}} Done Solutions. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "cookies": "Gestionar cookies"
+  },
+  "cookie": {
+    "title": "Cookies y privacidad",
+    "description": "Usamos cookies de análisis (Microsoft Clarity) para entender cómo se usa el sitio y mejorarlo. Solo se activan si usted acepta. Más información en nuestra",
+    "privacyLink": "Política de Privacidad",
+    "accept": "Aceptar cookies",
+    "decline": "Rechazar"
+  }
+}

@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import heroImage from "@/assets/hero-shipping.jpg";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -30,13 +33,13 @@ const Hero = () => {
             className="inline-block mb-8"
           >
             <span className="border border-primary-foreground/30 px-4 py-2 rounded-full font-display font-medium text-primary-foreground/90 text-sm leading-snug">
-              Excelência em Comércio Exterior
+              {t("hero.badge")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-10">
-            A Mais Completa, Eficiente e Qualificada Estrutura em{" "}
-            <span className="text-gradient-gold">Comércio Internacional</span>
+            {t("hero.title")}{" "}
+            <span className="text-gradient-gold">{t("hero.titleHighlight")}</span>
           </h1>
 
           <motion.div
@@ -46,15 +49,14 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="#contato">Solicitar Orçamento</a>
+              <a href="#contato">{t("hero.cta1")}</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="#servicos">Conhecer Serviços</a>
+              <a href="#servicos">{t("hero.cta2")}</a>
             </Button>
           </motion.div>
         </motion.div>
       </div>
-
 
       {/* Decorative bottom wave */}
       <div className="absolute -bottom-px left-0 right-0 z-10 overflow-hidden">

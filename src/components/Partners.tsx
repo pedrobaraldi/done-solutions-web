@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, ShieldCheck, Scale } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Client logo imports
 import staphytLogo from "@/assets/clients/staphyt.png";
@@ -169,7 +170,12 @@ const LogoMarquee = ({ items, label, variant, secondsPerItem, reverse = false }:
   );
 };
 
+const CARD_ICONS = [Building2, ShieldCheck, Scale];
+
 const Partners = () => {
+  const { t } = useTranslation();
+  const cards = t("partners.atuacao.cards", { returnObjects: true }) as { title: string; text: string }[];
+
   return (
     <section className="py-20 md:py-24 lg:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -184,52 +190,38 @@ const Partners = () => {
           <div className="relative rounded-2xl overflow-hidden mb-6 lg:mb-8 bg-primary">
             <div className="relative z-10 px-5 py-7 md:px-8 md:py-9 lg:px-10 lg:py-10">
               <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-2 lg:mb-3">
-                ATUAÇÃO
+                {t("partners.atuacao.title")}
               </h2>
               <p className="text-primary-foreground/90 text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed mb-5 lg:mb-6">
-                Experiência junto aos principais órgãos reguladores e anuentes do comércio exterior,
-                com processos alinhados às exigências legais e operacionais.
+                {t("partners.atuacao.description")}
               </p>
               <div className="grid sm:grid-cols-3 gap-3 lg:gap-4">
-                {[
-                  {
-                    icon: Building2,
-                    title: "Órgãos anuentes",
-                    text: "DECEX, ANVISA, MAPA, IBAMA e mais.",
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: "Conformidade",
-                    text: "Tratamentos administrativos e licenças.",
-                  },
-                  {
-                    icon: Scale,
-                    title: "Regulação",
-                    text: "Acompanhamento normativo em cada operação.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="flex items-start gap-3 rounded-xl bg-primary-foreground/10 border border-primary-foreground/15 px-3.5 py-3 lg:px-4 lg:py-3.5"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-4 h-4 text-primary" />
+                {cards.map((item, index) => {
+                  const CardIcon = CARD_ICONS[index];
+                  return (
+                    <div
+                      key={item.title}
+                      className="flex items-start gap-3 rounded-xl bg-primary-foreground/10 border border-primary-foreground/15 px-3.5 py-3 lg:px-4 lg:py-3.5"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
+                        <CardIcon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-display font-semibold text-primary-foreground text-sm lg:text-base">
+                          {item.title}
+                        </p>
+                        <p className="text-primary-foreground/75 text-xs lg:text-sm leading-snug mt-0.5">
+                          {item.text}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-display font-semibold text-primary-foreground text-sm lg:text-base">
-                        {item.title}
-                      </p>
-                      <p className="text-primary-foreground/75 text-xs lg:text-sm leading-snug mt-0.5">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
 
-          <LogoMarquee items={agencies} label="Órgãos e agências com que atuamos" variant="agency" secondsPerItem={5} reverse />
+          <LogoMarquee items={agencies} label={t("partners.agenciesLabel")} variant="agency" secondsPerItem={5} reverse />
         </motion.div>
 
         {/* Clientes */}
@@ -241,10 +233,10 @@ const Partners = () => {
           className="text-center"
         >
           <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-highlight mb-5 lg:mb-8">
-            CLIENTES
+            {t("partners.clientsTitle")}
           </h2>
 
-          <LogoMarquee items={clients} label="Nossos clientes" variant="client" secondsPerItem={3} reverse />
+          <LogoMarquee items={clients} label={t("partners.clientsLabel")} variant="client" secondsPerItem={3} reverse />
         </motion.div>
       </div>
     </section>

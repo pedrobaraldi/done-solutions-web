@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "operation": "Coverage",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "badge": "Excellence in Foreign Trade",
+    "title": "The Most Complete, Efficient and Qualified Structure in",
+    "titleHighlight": "International Trade",
+    "cta1": "Request a Quote",
+    "cta2": "Explore Services"
+  },
+  "about": {
+    "label": "About Us",
+    "heading": "Achievements in the",
+    "headingHighlight": "International Market",
+    "p1": "<strong>Done Solutions</strong> is an advisory and consulting firm specializing in Foreign Trade. We offer a complete, efficient and highly qualified structure for international commerce, with deep operational, logistics, tax and customs expertise.",
+    "p2": "We consistently make a difference in the COMEX market through <strong>honesty and transparency</strong>, building lasting client relationships around the world through excellence in human-centered service.",
+    "p3": "We are ready to plan, guide and detail solutions for direct <strong>import and export</strong> operations, as well as third-party trade operations.",
+    "imgAlt1": "Port with ships and containers",
+    "imgAlt2": "Logistics warehouse",
+    "imgAlt3": "Air freight operation",
+    "bridge": {
+      "heading": "Full coverage at every stage",
+      "description": "From port to warehouse, from air freight to documentation — operational presence across the entire foreign trade chain."
+    },
+    "highlights": [
+      { "title": "Maritime Transport", "description": "Full coordination at ports and container operations." },
+      { "title": "Customs Logistics", "description": "Storage, documentation and follow-up at every step." },
+      { "title": "Air Freight", "description": "Speed with regulatory support and tracking." }
+    ]
+  },
+  "services": {
+    "heading": "Advisory & Consulting in International Trade",
+    "mainServices": [
+      "License acquisition",
+      "Special Drawback Regime and its Concession Acts",
+      "Guidance for registration with regulatory bodies",
+      "Tariff classification and tax planning",
+      "Consulting on Laws, Decrees, Ordinances, Normative Instructions and Resolutions in International Trade operations",
+      "RADAR system enablement and updates",
+      "Management and supervision of administrative processes"
+    ],
+    "focusAreas": [
+      { "title": "Regulatory consulting", "description": "Licenses, RADAR, Drawback and granting authorities." },
+      { "title": "Full import service", "description": "From tax planning to customs clearance." },
+      { "title": "Agile export", "description": "DU-E, certificates and shipment tracking." }
+    ],
+    "desembaraco": {
+      "title": "Customs Clearance",
+      "items": [
+        "Fiscal classification analysis (NCM), exemptions, suspensions and tax reductions",
+        "Document verification and guidance",
+        "Administrative treatment consultation for import license (LI) preparation and issuance",
+        "International freight quotes for air, sea and road transport",
+        "Bonded warehouse logistics coordination",
+        "Cost structuring for full financial analysis of the operation",
+        "Bonded Warehouse Declaration (DA) issuance",
+        "Import Declaration (DI) issuance",
+        "Draft import invoice issuance",
+        "Domestic freight quotes",
+        "Process tracking and daily follow-ups"
+      ]
+    },
+    "export": {
+      "title": "Export",
+      "items": [
+        "Document verification and guidance",
+        "Compliance with administrative requirements of granting authorities",
+        "Single Export Declaration (DU-E) issuance",
+        "Certificate of Origin issuance",
+        "Phytosanitary Certificate issuance",
+        "CNCA Certificate (National Council of Angola Shippers)",
+        "Cost structuring for full financial analysis of the operation",
+        "Shipment monitoring and deadline compliance",
+        "International freight quotes for air, sea and road transport",
+        "Draft export invoice issuance",
+        "Process tracking and daily follow-ups"
+      ]
+    }
+  },
+  "operations": {
+    "locaisLabel": "Operation locations",
+    "activePontos": "{{count}} active points",
+    "tabs": {
+      "portos": {
+        "label": "Ports",
+        "summary": "National coverage at major ports for maritime import and export."
+      },
+      "aeroportos": {
+        "label": "Airports",
+        "summary": "Speed in air cargo with documentation support and daily follow-up."
+      },
+      "fronteiras": {
+        "label": "Border Crossings",
+        "summary": "Operations at the main border crossings of Brazil."
+      }
+    }
+  },
+  "partners": {
+    "atuacao": {
+      "title": "COVERAGE",
+      "description": "Experience working with Brazil's main regulatory and granting authorities in foreign trade, with processes aligned to legal and operational requirements.",
+      "cards": [
+        { "title": "Granting authorities", "text": "DECEX, ANVISA, MAPA, IBAMA and more." },
+        { "title": "Compliance", "text": "Administrative procedures and licenses." },
+        { "title": "Regulation", "text": "Regulatory monitoring in every operation." }
+      ]
+    },
+    "agenciesLabel": "Agencies and bodies we work with",
+    "clientsTitle": "CLIENTS",
+    "clientsLabel": "Our clients"
+  },
+  "contact": {
+    "title": "Contact",
+    "officeCity": "Done São Paulo",
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Business hours",
+      "hoursValue": "Mon – Fri: 8am to 6pm"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "message": "Message",
+      "messagePlaceholder": "How can we help?",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "toast": {
+      "success": "Message sent! We will get back to you shortly.",
+      "error": "Could not send your message. Please try again or contact us via WhatsApp.",
+      "phoneError": "Invalid phone number. Use area code (11) 99999-9999 or international format +1 415 555 2671."
+    }
+  },
+  "footer": {
+    "description": "Advisory and consulting in Foreign Trade. Complete solutions in import, export and international logistics for agribusiness.",
+    "quickLinks": "Quick Links",
+    "linkAbout": "About Us",
+    "linkServices": "Services",
+    "linkOperation": "Coverage",
+    "linkContact": "Contact",
+    "office": "Office",
+    "rights": "© {{year}} Done Solutions. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookies": "Manage cookies"
+  },
+  "cookie": {
+    "title": "Cookies & Privacy",
+    "description": "We use analytics cookies (Microsoft Clarity) to understand how our site is used and improve it. They are only activated if you accept. Learn more in our",
+    "privacyLink": "Privacy Policy",
+    "accept": "Accept cookies",
+    "decline": "Decline"
+  }
+}

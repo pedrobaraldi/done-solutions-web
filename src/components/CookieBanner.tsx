@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import {
-  OPEN_COOKIE_SETTINGS_EVENT,
-  acceptAnalytics,
-  declineAnalytics,
-  getConsent,
-} from "@/lib/analytics";
+import { OPEN_COOKIE_SETTINGS_EVENT, acceptAnalytics, declineAnalytics, getConsent } from "@/lib/analytics";
+import { useTranslation } from "react-i18next";
 
 const CookieBanner = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -30,24 +27,23 @@ const CookieBanner = () => {
     <div
       role="dialog"
       aria-live="polite"
-      aria-label="Aviso de cookies"
+      aria-label={t("cookie.title")}
       className="fixed bottom-4 left-4 right-4 z-[60] md:right-auto md:max-w-md rounded-xl border border-border bg-card p-5 shadow-lg animate-fade-in"
     >
-      <p className="font-display font-semibold text-foreground mb-1">Cookies e privacidade</p>
+      <p className="font-display font-semibold text-foreground mb-1">{t("cookie.title")}</p>
       <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-        Usamos cookies de análise (Microsoft Clarity) para entender como o site é usado e
-        melhorá-lo. Eles só são ativados se você aceitar. Saiba mais na{" "}
+        {t("cookie.description")}{" "}
         <Link to="/privacidade" className="text-foreground underline underline-offset-2">
-          Política de Privacidade
+          {t("cookie.privacyLink")}
         </Link>
         .
       </p>
       <div className="flex flex-col-reverse sm:flex-row gap-2">
         <Button variant="outline" className="sm:flex-1" onClick={() => choose(false)}>
-          Recusar
+          {t("cookie.decline")}
         </Button>
         <Button variant="gold" className="sm:flex-1" onClick={() => choose(true)}>
-          Aceitar cookies
+          {t("cookie.accept")}
         </Button>
       </div>
     </div>

@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "about": "关于我们",
+    "services": "服务",
+    "operation": "覆盖范围",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "badge": "卓越的对外贸易服务",
+    "title": "最完整、高效、专业的",
+    "titleHighlight": "国际贸易解决方案",
+    "cta1": "申请报价",
+    "cta2": "了解服务"
+  },
+  "about": {
+    "label": "关于我们",
+    "heading": "在",
+    "headingHighlight": "国际市场上的成就",
+    "p1": "<strong>Done Solutions</strong> 是一家专注于对外贸易的咨询顾问公司。我们在国际商务领域拥有完整、高效且高度专业化的结构，具备深厚的运营、物流、税务和海关专业知识。",
+    "p2": "我们始终以<strong>诚信与透明</strong>在外贸市场中脱颖而出，以卓越的人性化服务在全球范围内建立持久的客户关系。",
+    "p3": "我们准备好为<strong>进口、出口</strong>直接业务以及第三方贸易业务规划、指导和提供详细解决方案。",
+    "imgAlt1": "港口船舶和集装箱",
+    "imgAlt2": "物流仓库",
+    "imgAlt3": "空运操作",
+    "bridge": {
+      "heading": "每个环节的全面覆盖",
+      "description": "从港口到仓库，从空运到文件处理——全面参与对外贸易链的每个环节。"
+    },
+    "highlights": [
+      { "title": "海运", "description": "港口和集装箱操作的全面协调。" },
+      { "title": "海关物流", "description": "每个环节的仓储、文件处理和跟进。" },
+      { "title": "空运", "description": "高效的监管支持和货物追踪。" }
+    ]
+  },
+  "services": {
+    "heading": "国际贸易咨询顾问服务",
+    "mainServices": [
+      "许可证申请",
+      "特殊退税制度及其授权行为",
+      "向监管机构注册指导",
+      "关税分类与税务规划",
+      "国际贸易业务相关法律、法令、规范性指令和决议咨询",
+      "RADAR系统启用及更新",
+      "行政流程管理与监督"
+    ],
+    "focusAreas": [
+      { "title": "监管咨询", "description": "许可证、RADAR、退税及授权机构。" },
+      { "title": "完整进口服务", "description": "从税务规划到海关清关。" },
+      { "title": "高效出口", "description": "DU-E、证书及货物跟踪。" }
+    ],
+    "desembaraco": {
+      "title": "海关清关",
+      "items": [
+        "财务分类分析（NCM）、豁免、暂停和税收减免",
+        "文件核查与指导",
+        "进口许可证（LI）申请的行政处理咨询",
+        "国际空运、海运和陆运运费报价",
+        "保税仓库物流协调",
+        "全面财务分析的成本结构",
+        "保税仓库申报（DA）签发",
+        "进口申报（DI）签发",
+        "进口发票草稿签发",
+        "国内运费报价",
+        "流程追踪与每日跟进"
+      ]
+    },
+    "export": {
+      "title": "出口",
+      "items": [
+        "文件核查与指导",
+        "遵守授权机构的行政要求",
+        "单一出口申报（DU-E）签发",
+        "原产地证书签发",
+        "植物检疫证书签发",
+        "CNCA证书（安哥拉全国货主委员会）",
+        "全面财务分析的成本结构",
+        "货物监控与截止日期管理",
+        "国际空运、海运和陆运运费报价",
+        "出口发票草稿签发",
+        "流程追踪与每日跟进"
+      ]
+    }
+  },
+  "operations": {
+    "locaisLabel": "运营地点",
+    "activePontos": "{{count}} 个活跃节点",
+    "tabs": {
+      "portos": {
+        "label": "港口",
+        "summary": "覆盖主要港口的海运进出口全国服务。"
+      },
+      "aeroportos": {
+        "label": "机场",
+        "summary": "高效空运货物服务，提供文件支持和每日跟进。"
+      },
+      "fronteiras": {
+        "label": "口岸",
+        "summary": "巴西主要口岸的通关业务。"
+      }
+    }
+  },
+  "partners": {
+    "atuacao": {
+      "title": "业务范围",
+      "description": "与巴西对外贸易主要监管和授权机构合作的丰富经验，所有流程符合法律和运营要求。",
+      "cards": [
+        { "title": "授权机构", "text": "DECEX、ANVISA、MAPA、IBAMA等。" },
+        { "title": "合规", "text": "行政程序与许可证办理。" },
+        { "title": "监管", "text": "每项业务的规范性跟踪。" }
+      ]
+    },
+    "agenciesLabel": "合作机构与监管部门",
+    "clientsTitle": "客户",
+    "clientsLabel": "我们的客户"
+  },
+  "contact": {
+    "title": "联系我们",
+    "officeCity": "圣保罗办事处",
+    "info": {
+      "title": "联系信息",
+      "phone": "电话",
+      "email": "电子邮件",
+      "hours": "办公时间",
+      "hoursValue": "周一至周五：8:00 至 18:00"
+    },
+    "form": {
+      "title": "发送消息",
+      "name": "全名",
+      "namePlaceholder": "您的姓名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "phonePlaceholder": "+86 10 0000 0000",
+      "message": "消息",
+      "messagePlaceholder": "我们能为您提供什么帮助？",
+      "submit": "发送消息",
+      "sending": "发送中..."
+    },
+    "toast": {
+      "success": "消息已发送！我们将尽快与您联系。",
+      "error": "消息发送失败，请重试或通过WhatsApp联系我们。",
+      "phoneError": "无效的电话号码。请使用巴西格式 (11) 99999-9999 或国际格式 +1 415 555 2671。"
+    }
+  },
+  "footer": {
+    "description": "对外贸易咨询顾问服务。为农业综合企业提供进口、出口和国际物流的完整解决方案。",
+    "quickLinks": "快速链接",
+    "linkAbout": "关于我们",
+    "linkServices": "服务",
+    "linkOperation": "覆盖范围",
+    "linkContact": "联系",
+    "office": "办公室",
+    "rights": "© {{year}} Done Solutions. 保留所有权利。",
+    "privacy": "隐私政策",
+    "cookies": "管理Cookie"
+  },
+  "cookie": {
+    "title": "Cookie与隐私",
+    "description": "我们使用分析Cookie（Microsoft Clarity）了解网站使用情况并加以改进。仅在您同意后激活。详情请查看我们的",
+    "privacyLink": "隐私政策",
+    "accept": "接受Cookie",
+    "decline": "拒绝"
+  }
+}
