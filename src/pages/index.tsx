@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -10,7 +11,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen overflow-x-clip">
       <Header />
       <main>
         <Hero />
@@ -22,7 +24,8 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
-    </div>
+      </div>
+    </MotionConfig>
   );
 };
 

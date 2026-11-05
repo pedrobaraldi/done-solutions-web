@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { openCookieSettings } from "@/lib/analytics";
 import { Phone, Mail, MapPin, Linkedin, Instagram, MessageCircle, Facebook } from "lucide-react";
 import logoBranca from "@/assets/logo-branca.png";
 
@@ -77,11 +79,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#diferenciais" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  Diferenciais
-                </a>
-              </li>
-              <li>
                 <a href="#contato" className="text-primary-foreground/70 hover:text-accent transition-colors">
                   Contato
                 </a>
@@ -125,6 +122,18 @@ const Footer = () => {
           <p className="text-primary-foreground/50 text-sm">
             © {currentYear} Done Solutions. Todos os direitos reservados.
           </p>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-3 text-sm">
+            <Link to="/privacidade" className="text-primary-foreground/70 hover:text-accent transition-colors">
+              Política de Privacidade
+            </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-primary-foreground/70 hover:text-accent transition-colors"
+            >
+              Gerenciar cookies
+            </button>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import logo from "@/assets/logo.png";
@@ -11,18 +12,32 @@ const navItems = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border shadow-soft">
-      <div className="container mx-auto px-4 py-4">
+    <header
+      className={`bg-background/95 backdrop-blur-md sticky top-0 z-50 border-b transition-shadow duration-300 ${
+        scrolled ? "border-border shadow-md" : "border-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src={logo} alt="Done Solutions" className="h-14 md:h-16 w-auto" />
+            <img src={logo} alt="Done Solutions" className={`w-auto transition-all duration-300 ${scrolled ? "h-10 md:h-11" : "h-12 md:h-14"}`} />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -72,6 +87,11 @@ const Header = () => {
           </nav>
         )}
       </div>
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 right-0 h-0.5 origin-left bg-accent"
+      />
     </header>
   );
 };

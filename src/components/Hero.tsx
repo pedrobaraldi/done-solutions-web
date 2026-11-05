@@ -4,13 +4,13 @@ import heroImage from "@/assets/hero-shipping.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Navio cargueiro no oceano ao pôr do sol"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary/90" />
       </div>
@@ -27,14 +27,14 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block mb-6"
+            className="inline-block mb-8"
           >
-            <span className="bg-gradient-gold px-5 md:px-6 py-2.5 md:py-2 rounded-full font-display font-semibold text-primary text-xs md:text-sm uppercase tracking-widest leading-snug">
+            <span className="border border-primary-foreground/30 px-4 py-2 rounded-full font-display font-medium text-primary-foreground/90 text-sm leading-snug">
               Excelência em Comércio Exterior
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
+          <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-10">
             A Mais Completa, Eficiente e Qualificada Estrutura em{" "}
             <span className="text-gradient-gold">Comércio Internacional</span>
           </h1>
@@ -45,23 +45,24 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="xl">
-              Solicitar Orçamento
+            <Button variant="hero" size="xl" asChild>
+              <a href="#contato">Solicitar Orçamento</a>
             </Button>
-            <Button variant="heroOutline" size="xl">
-              Conhecer Serviços
+            <Button variant="heroOutline" size="xl" asChild>
+              <a href="#servicos">Conhecer Serviços</a>
             </Button>
           </motion.div>
         </motion.div>
       </div>
 
+
       {/* Decorative bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div className="absolute -bottom-px left-0 right-0 z-10 overflow-hidden">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full block"
+          className="w-full block animate-wave"
           preserveAspectRatio="none"
         >
           <path

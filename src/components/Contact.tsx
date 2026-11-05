@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import ReCaptcha from "./ReCaptcha";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
+import { PHONE_MAX_LENGTH, formatPhone, isValidPhone } from "@/lib/phone";
 
 const offices = [
   {
@@ -20,32 +22,80 @@ const Contact = () => {
     message: "",
   });
 
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
 
-    if (!captchaToken) {
-      alert("Por favor, confirme que você não é um robô antes de enviar.");
+    // Robôs preenchem o campo escondido: finge que enviou e descarta.
+    if (honeypot) {
+      toast.success("Mensagem enviada! Retornaremos em breve.");
       return;
     }
 
-    console.log(formData, captchaToken);
+    if (!isValidPhone(formData.phone)) {
+      toast.error("Telefone inválido. Use DDD (11) 99999-9999 ou o formato internacional +1 415 555 2671.");
+      return;
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
+    const emailConfigured = Boolean(serviceId && templateId && publicKey);
+    const emailParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || "Não informado",
+      message: formData.message,
+      reply_to: formData.email,
+    };
+
+    setSending(true);
+
+    // A mensagem é guardada no Firebase e, se o EmailJS estiver configurado, também avisada por e-mail.
+    // O envio conta como feito se pelo menos um dos dois funcionar.
+    const [saved, emailed] = await Promise.allSettled([
+      import("@/lib/messages").then((m) => m.saveContactMessage(formData)),
+      emailConfigured
+        ? emailjs.send(serviceId, templateId, emailParams, { publicKey })
+        : Promise.reject(new Error("EmailJS não configurado (VITE_EMAILJS_* no .env)")),
+    ]);
+
+    // Resposta automática para quem enviou (template separado). Falhar aqui não cancela o envio.
+    if (emailConfigured && autoReplyTemplateId) {
+      emailjs
+        .send(serviceId, autoReplyTemplateId, emailParams, { publicKey })
+        .catch((error) => console.error("EmailJS (resposta automática):", error));
+    }
+
+    if (saved.status === "rejected") console.error("Firebase:", saved.reason);
+    if (emailed.status === "rejected") console.error("EmailJS:", emailed.reason);
+
+    if (saved.status === "fulfilled" || emailed.status === "fulfilled") {
+      toast.success("Mensagem enviada! Retornaremos em breve.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } else {
+      toast.error("Não foi possível enviar. Tente novamente ou fale conosco pelo WhatsApp.");
+    }
+    setSending(false);
   };
 
   return (
-    <section id="contato" className="py-20 bg-highlight/20">
+    <section id="contato" className="py-24 lg:py-28 bg-secondary">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-10"
+          className="mb-12"
         >
-          <div className="inline-block bg-highlight text-highlight-foreground font-display font-bold px-8 py-4 rounded-r-full text-lg uppercase tracking-wide mb-8 -ml-4 md:-ml-8">
+          <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-foreground">
             Contato
-          </div>
+          </h2>
         </motion.div>
 
         {/* Mobile Layout */}
@@ -143,6 +193,7 @@ const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     placeholder="Seu nome"
+                    maxLength={100}
                     required
                   />
                 </div>
@@ -168,9 +219,12 @@ const Contact = () => {
                   </label>
                   <input
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    maxLength={PHONE_MAX_LENGTH}
                     id="phone-mobile"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     placeholder="(00) 00000-0000"
                   />
@@ -185,17 +239,28 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
+                    maxLength={2000}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     required
                   />
                 </div>
 
-                <ReCaptcha onChange={setCaptchaToken} />
+                {/* Campo-armadilha contra robôs: pessoas não o veem nem preenchem. */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
 
-                <Button type="submit" variant="gold" size="lg" className="w-full">
+                <Button type="submit" variant="gold" size="lg" className="w-full" disabled={sending}>
                   <Send className="w-5 h-5" />
-                  Enviar Mensagem
+                  {sending ? "Enviando..." : "Enviar Mensagem"}
                 </Button>
               </div>
             </form>
@@ -292,6 +357,7 @@ const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     placeholder="Seu nome"
+                    maxLength={100}
                     required
                   />
                 </div>
@@ -317,9 +383,12 @@ const Contact = () => {
                     </label>
                     <input
                       type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    maxLength={PHONE_MAX_LENGTH}
                       id="phone"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                       placeholder="(00) 00000-0000"
                     />
@@ -335,17 +404,28 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
+                    maxLength={2000}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     required
                   />
                 </div>
 
-                <ReCaptcha onChange={setCaptchaToken} />
+                {/* Campo-armadilha contra robôs: pessoas não o veem nem preenchem. */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
 
-                <Button type="submit" variant="gold" size="lg" className="w-full">
+                <Button type="submit" variant="gold" size="lg" className="w-full" disabled={sending}>
                   <Send className="w-5 h-5" />
-                  Enviar Mensagem
+                  {sending ? "Enviando..." : "Enviar Mensagem"}
                 </Button>
               </div>
             </form>
