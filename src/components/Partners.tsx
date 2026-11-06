@@ -33,6 +33,13 @@ import inovagriLogo from "@/assets/clients/inovagri.png";
 import jubailiLogo from "@/assets/clients/jubaili.png";
 import parceagroLogo from "@/assets/clients/parceagro.png";
 import nanofertLogo from "@/assets/clients/nanofert.png";
+import tecnomylLogo from "@/assets/clients/tecnomyl.png";
+import sasLogo from "@/assets/clients/sas.png";
+import nufarmLogo from "@/assets/clients/nufarm.png";
+import syntechLogo from "@/assets/clients/syntech.png";
+import indoramaLogo from "@/assets/clients/indorama.png";
+import gaiaAgrosolutionsLogo from "@/assets/clients/gaia-agrosolutions.png";
+import lemmaLogo from "@/assets/clients/lemma.png";
 
 // Agency logo imports
 import receitaFederalLogo from "@/assets/agencies/receita-federal.jpg";
@@ -44,6 +51,8 @@ import decexLogo from "@/assets/agencies/decex.jpg";
 import policiaFederalLogo from "@/assets/agencies/policia-federal.jpg";
 import anpLogo from "@/assets/agencies/anp.jpg";
 import inmetroLogo from "@/assets/agencies/inmetro.jpg";
+
+type Logo = { name: string; logo?: string; onDark?: boolean };
 
 // Agency logos with actual images
 const agencies = [
@@ -58,8 +67,8 @@ const agencies = [
   { name: "POLÍCIA FEDERAL", logo: policiaFederalLogo },
 ];
 
-// Client logos with 600x400 dimension images
-const clients = [
+// onDark: logos com partes brancas, que precisam de cartão escuro para aparecer
+const clients: Logo[] = [
   { name: "Staphyt", logo: staphytLogo },
   { name: "Dazan", logo: dazanLogo },
   { name: "CorrosionX", logo: corrosionxLogo },
@@ -90,17 +99,14 @@ const clients = [
   { name: "Jubaili", logo: jubailiLogo },
   { name: "Parceragro", logo: parceagroLogo },
   { name: "Nanofert", logo: nanofertLogo },
-  { name: "Tecnomyl" },
-  { name: "SAS (Sustainable Agro Solutions)" },
-  { name: "NUFARM" },
-  { name: "Syntech" },
-  { name: "INDORAMA" },
-  { name: "Gaia" },
-  { name: "Agrosolutions" },
-  { name: "LEMMA" },
+  { name: "Tecnomyl", logo: tecnomylLogo, onDark: true },
+  { name: "SAS (Sustainable Agro Solutions)", logo: sasLogo },
+  { name: "NUFARM", logo: nufarmLogo },
+  { name: "Syntech", logo: syntechLogo },
+  { name: "INDORAMA", logo: indoramaLogo },
+  { name: "Gaia Agrosolutions", logo: gaiaAgrosolutionsLogo, onDark: true },
+  { name: "LEMMA", logo: lemmaLogo },
 ];
-
-type Logo = { name: string; logo?: string };
 
 type LogoMarqueeProps = {
   items: Logo[];
@@ -133,7 +139,7 @@ const LogoMarquee = ({ items, label, variant, secondsPerItem, reverse = false }:
               className={`shrink-0 mr-3 md:mr-4 lg:mr-5 rounded-xl border flex items-center justify-center transition-shadow hover:shadow-md ${
                 isAgency
                   ? "bg-white border-border/60 p-3 md:p-5 w-32 h-24 md:w-44 md:h-32 lg:w-56 lg:h-40"
-                  : "bg-card border-border p-3 md:p-4 w-32 md:w-40 lg:w-48 aspect-[3/2]"
+                  : `${item.onDark ? "bg-primary border-primary" : "bg-card border-border"} p-3 md:p-4 w-32 md:w-40 lg:w-48 aspect-[3/2]`
               }`}
             >
               {item.logo ? (
