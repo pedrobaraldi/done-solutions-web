@@ -91,7 +91,7 @@ const Services = () => {
                 {desembaracoItems.map((item, index) => (
                   <li key={index} className="text-muted-foreground text-sm lg:text-base leading-snug lg:leading-relaxed flex gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-highlight mt-2 flex-shrink-0" />
-                    <span>{item};</span>
+                    <span>{item}{index === desembaracoItems.length - 1 ? "." : ";"}</span>
                   </li>
                 ))}
               </ul>

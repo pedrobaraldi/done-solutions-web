@@ -9,28 +9,20 @@ import corrosionxLogo from "@/assets/clients/corrosionx.png";
 import lapiendriusLogo from "@/assets/clients/lapiendrius.png";
 import lessenceLogo from "@/assets/clients/lessence.png";
 import progarLogo from "@/assets/clients/progar.png";
-import usecorLogo from "@/assets/clients/usecor.png";
 import alvoradaLogo from "@/assets/clients/alvorada.png";
 import dagramasLogo from "@/assets/clients/dagramas.png";
-import aquaLogo from "@/assets/clients/aqua.png";
-import algaEnergyLogo from "@/assets/clients/alga-energy.png";
 import korinLogo from "@/assets/clients/korin.png";
-import fortracLogo from "@/assets/clients/fortrac.png";
 import helenaLogo from "@/assets/clients/helena.png";
 import nutrisafraLogo from "@/assets/clients/nutrisafra.png";
 import grupoVignaBrasilLogo from "@/assets/clients/grupo-vigna-brasil.png";
-import soloSagradoLogo from "@/assets/clients/solo-sagrado.png";
 import oxiquimicaLogo from "@/assets/clients/oxiquimica.png";
 import agroAmazoniaLogo from "@/assets/clients/agro-amazonia.png";
-import nutrienLogo from "@/assets/clients/nutrien.png";
 import agrivalleLogo from "@/assets/clients/agrivalle.png";
 import agriConnectionLogo from "@/assets/clients/agri-connection.png";
 import sciAgroLogo from "@/assets/clients/sci-agro.png";
 import braLogo from "@/assets/clients/bra.png";
 import indofilLogo from "@/assets/clients/indofil.png";
 import mezferLogo from "@/assets/clients/mezfer.png";
-import basfLogo from "@/assets/clients/basf.png";
-import arghoLogo from "@/assets/clients/argho.png";
 import aspebioLogo from "@/assets/clients/aspebio.png";
 import yononLogo from "@/assets/clients/yonon.png";
 import agritekLogo from "@/assets/clients/agritek.png";
@@ -39,8 +31,6 @@ import agroquimaLogo from "@/assets/clients/agroquima.png";
 import globachemLogo from "@/assets/clients/globachem.png";
 import inovagriLogo from "@/assets/clients/inovagri.png";
 import jubailiLogo from "@/assets/clients/jubaili.png";
-import nativaBioInsumosLogo from "@/assets/clients/nativa-bio-insumos.png";
-import novachemLogo from "@/assets/clients/novachem.png";
 import parceagroLogo from "@/assets/clients/parceagro.png";
 import nanofertLogo from "@/assets/clients/nanofert.png";
 
@@ -76,28 +66,20 @@ const clients = [
   { name: "Lapiendrius", logo: lapiendriusLogo },
   { name: "L'essence", logo: lessenceLogo },
   { name: "Pro.Gar", logo: progarLogo },
-  { name: "Usecor", logo: usecorLogo },
   { name: "Agrícola Alvorada", logo: alvoradaLogo },
   { name: "Dagramas", logo: dagramasLogo },
-  { name: "Aqua", logo: aquaLogo },
-  { name: "Alga Energy", logo: algaEnergyLogo },
   { name: "Korin", logo: korinLogo },
-  { name: "Fortrac", logo: fortracLogo },
   { name: "Helena", logo: helenaLogo },
   { name: "Nutrisafra", logo: nutrisafraLogo },
   { name: "Grupo Vigna Brasil", logo: grupoVignaBrasilLogo },
-  { name: "Solo Sagrado", logo: soloSagradoLogo },
   { name: "Oxiquímica", logo: oxiquimicaLogo },
   { name: "Agro Amazônia", logo: agroAmazoniaLogo },
-  { name: "Nutrien", logo: nutrienLogo },
   { name: "Agrivalle", logo: agrivalleLogo },
   { name: "Agri Connection", logo: agriConnectionLogo },
   { name: "Sci-Agro", logo: sciAgroLogo },
   { name: "BRA Agroquímica", logo: braLogo },
   { name: "Indofil", logo: indofilLogo },
   { name: "Mezfer Brasil", logo: mezferLogo },
-  { name: "BASF", logo: basfLogo },
-  { name: "Argho Agrosciences", logo: arghoLogo },
   { name: "Aspebio", logo: aspebioLogo },
   { name: "Yonon", logo: yononLogo },
   { name: "Concept Agritek", logo: agritekLogo },
@@ -106,10 +88,16 @@ const clients = [
   { name: "Globachem do Brasil", logo: globachemLogo },
   { name: "Inovagri", logo: inovagriLogo },
   { name: "Jubaili", logo: jubailiLogo },
-  { name: "Nativa Bio Insumos", logo: nativaBioInsumosLogo },
-  { name: "NovaChem", logo: novachemLogo },
   { name: "Parceragro", logo: parceagroLogo },
   { name: "Nanofert", logo: nanofertLogo },
+  { name: "Tecnomyl" },
+  { name: "SAS (Sustainable Agro Solutions)" },
+  { name: "NUFARM" },
+  { name: "Syntech" },
+  { name: "INDORAMA" },
+  { name: "Gaia" },
+  { name: "Agrosolutions" },
+  { name: "LEMMA" },
 ];
 
 type Logo = { name: string; logo?: string };
