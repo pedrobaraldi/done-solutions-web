@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Anchor, Plane, MapPin } from "lucide-react";
-import polvoOperacaoImage from "@/assets/polvo-operacao.png";
 import { useTranslation } from "react-i18next";
 
 const TAB_IDS = ["portos", "aeroportos", "fronteiras"] as const;
@@ -41,13 +40,10 @@ const Operations = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="flex items-end gap-4"
           >
-            <img
-              src={polvoOperacaoImage}
-              alt="Operação Done Solutions"
-              className="w-40 md:w-52 lg:w-64 h-auto object-contain"
-            />
+            <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-foreground leading-tight">
+              {t("nav.operation")}
+            </h2>
           </motion.div>
 
           <motion.div
