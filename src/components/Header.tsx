@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import logo from "@/assets/logo.png";
 import { useTranslation } from "react-i18next";
+import { currentLang } from "@/i18n";
 
 const LANGS = [
   { code: "pt", flag: "br", label: "Português" },
@@ -22,7 +23,8 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const langRef = useRef<HTMLDivElement>(null);
 
-  const activeLang = LANGS.find((l) => l.code === i18n.language) ?? LANGS[0];
+  const langCode = currentLang();
+  const activeLang = LANGS.find((l) => l.code === langCode) ?? LANGS[0];
 
   const navItems = [
     { label: t("nav.about"), href: "#sobre", id: "sobre" },
@@ -57,13 +59,23 @@ const Header = () => {
 
   // Close lang dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: Event) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
       }
     };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLangOpen(false);
+    };
+    // touchstart cobre celulares/tablets em que o mousedown chega atrasado ou não chega.
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside, { passive: true });
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, []);
 
   const changeLang = (code: string) => {
@@ -81,7 +93,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center shrink-0 mr-4">
             <img
               src={logo}
               alt="Done Solutions"
@@ -90,14 +102,14 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`relative group flex items-center px-4 py-2 rounded-lg font-display font-medium text-sm transition-all duration-200 ${
+                  className={`relative group flex items-center whitespace-nowrap px-3 xl:px-4 py-2 rounded-lg font-display font-medium text-sm transition-all duration-200 ${
                     isActive
                       ? "text-accent bg-accent/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -117,22 +129,25 @@ const Header = () => {
             })}
 
             {/* Language switcher — desktop dropdown */}
-            <div ref={langRef} className="relative ml-3">
+            <div ref={langRef} className="relative ml-2 xl:ml-3">
               <button
                 onClick={() => setLangOpen((v) => !v)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-display font-medium transition-all duration-200 ${
+                className={`flex items-center gap-2 whitespace-nowrap px-3 py-2 rounded-lg border text-sm font-display font-medium transition-all duration-200 ${
                   langOpen
                     ? "border-accent/50 bg-accent/10 text-accent"
                     : "border-border text-muted-foreground hover:border-accent/40 hover:bg-secondary hover:text-foreground"
                 }`}
                 aria-haspopup="listbox"
                 aria-expanded={langOpen}
+                aria-label={activeLang.label}
               >
                 <span
                   className={`fi fi-${activeLang.flag} rounded-sm flex-shrink-0`}
                   style={{ width: 20, height: 15, display: "inline-block" }}
                 />
-                <span>{activeLang.label}</span>
+                {/* Em telas médias mostra só a sigla para não espremer o menu */}
+                <span className="xl:hidden uppercase">{activeLang.code}</span>
+                <span className="hidden xl:inline">{activeLang.label}</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
                 />
@@ -146,7 +161,7 @@ const Header = () => {
                   className="absolute right-0 mt-2 w-44 rounded-xl border border-border bg-card shadow-lg overflow-hidden z-50"
                 >
                   {LANGS.map((lang) => {
-                    const isSelected = i18n.language === lang.code;
+                    const isSelected = langCode === lang.code;
                     return (
                       <button
                         key={lang.code}
@@ -172,7 +187,7 @@ const Header = () => {
               )}
             </div>
 
-            <a href="#contato" className="ml-3">
+            <a href="#contato" className="ml-2 xl:ml-3 shrink-0">
               <Button variant="gold" size="default">
                 {t("nav.contact")}
               </Button>
@@ -219,7 +234,7 @@ const Header = () => {
               {/* Language switcher mobile */}
               <div className="mt-2 rounded-xl border border-border overflow-hidden">
                 {LANGS.map((lang) => {
-                  const isSelected = i18n.language === lang.code;
+                  const isSelected = langCode === lang.code;
                   return (
                     <button
                       key={lang.code}

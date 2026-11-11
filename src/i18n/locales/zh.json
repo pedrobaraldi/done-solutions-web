@@ -10,7 +10,8 @@
     "title": "最完整、高效、专业的",
     "titleHighlight": "国际贸易解决方案",
     "cta1": "申请报价",
-    "cta2": "了解服务"
+    "cta2": "了解服务",
+    "imgAlt": "日落时分海上的货轮"
   },
   "about": {
     "label": "关于我们",
@@ -27,9 +28,18 @@
       "description": "从港口到仓库，从空运到文件处理——全面参与对外贸易链的每个环节。"
     },
     "highlights": [
-      { "title": "海运", "description": "港口和集装箱操作的全面协调。" },
-      { "title": "海关物流", "description": "每个环节的仓储、文件处理和跟进。" },
-      { "title": "空运", "description": "高效的监管支持和货物追踪。" }
+      {
+        "title": "海运",
+        "description": "港口和集装箱操作的全面协调。"
+      },
+      {
+        "title": "海关物流",
+        "description": "每个环节的仓储、文件处理和跟进。"
+      },
+      {
+        "title": "空运",
+        "description": "高效的监管支持和货物追踪。"
+      }
     ]
   },
   "services": {
@@ -44,9 +54,18 @@
       "行政流程管理与监督"
     ],
     "focusAreas": [
-      { "title": "监管咨询", "description": "许可证、RADAR、退税及授权机构。" },
-      { "title": "完整进口服务", "description": "从税务规划到海关清关。" },
-      { "title": "高效出口", "description": "DU-E、证书及货物跟踪。" }
+      {
+        "title": "监管咨询",
+        "description": "许可证、RADAR、退税及授权机构。"
+      },
+      {
+        "title": "完整进口服务",
+        "description": "从税务规划到海关清关。"
+      },
+      {
+        "title": "高效出口",
+        "description": "DU-E、证书及货物跟踪。"
+      }
     ],
     "desembaraco": {
       "title": "海关清关",
@@ -104,9 +123,18 @@
       "title": "业务范围",
       "description": "与巴西对外贸易主要监管和授权机构合作的丰富经验，所有流程符合法律和运营要求。",
       "cards": [
-        { "title": "授权机构", "text": "DECEX、ANVISA、MAPA、IBAMA等。" },
-        { "title": "合规", "text": "行政程序与许可证办理。" },
-        { "title": "监管", "text": "每项业务的规范性跟踪。" }
+        {
+          "title": "授权机构",
+          "text": "DECEX、ANVISA、MAPA、IBAMA等。"
+        },
+        {
+          "title": "合规",
+          "text": "行政程序与许可证办理。"
+        },
+        {
+          "title": "监管",
+          "text": "每项业务的规范性跟踪。"
+        }
       ]
     },
     "agenciesLabel": "合作机构与监管部门",
@@ -159,5 +187,9 @@
     "privacyLink": "隐私政策",
     "accept": "接受Cookie",
     "decline": "拒绝"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "back": "返回首页"
   }
 }

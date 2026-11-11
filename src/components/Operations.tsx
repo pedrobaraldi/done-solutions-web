@@ -109,7 +109,7 @@ const Operations = () => {
             transition={{ duration: 0.25 }}
             className="lg:col-span-8 bg-card rounded-2xl px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-8 border border-border"
           >
-            <div className="flex items-center justify-between gap-3 mb-4 lg:mb-5 pb-3 border-b border-border">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-4 lg:mb-5 pb-3 border-b border-border">
               <p className="font-display font-semibold text-foreground text-sm lg:text-base">
                 {t("operations.locaisLabel")}
               </p>

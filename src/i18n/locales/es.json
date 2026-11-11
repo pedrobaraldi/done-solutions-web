@@ -10,7 +10,8 @@
     "title": "La Estructura Más Completa, Eficiente y Calificada en",
     "titleHighlight": "Comercio Internacional",
     "cta1": "Solicitar Cotización",
-    "cta2": "Ver Servicios"
+    "cta2": "Ver Servicios",
+    "imgAlt": "Buque de carga en el océano al atardecer"
   },
   "about": {
     "label": "Quiénes Somos",
@@ -27,9 +28,18 @@
       "description": "Del puerto al almacén, del flete aéreo a la documentación — presencia operacional en toda la cadena del comercio exterior."
     },
     "highlights": [
-      { "title": "Transporte Marítimo", "description": "Coordinación completa en puertos y operaciones de contenedores." },
-      { "title": "Logística Aduanera", "description": "Almacenamiento, documentación y seguimiento en cada etapa." },
-      { "title": "Carga Aérea", "description": "Agilidad con soporte regulatorio y rastreo." }
+      {
+        "title": "Transporte Marítimo",
+        "description": "Coordinación completa en puertos y operaciones de contenedores."
+      },
+      {
+        "title": "Logística Aduanera",
+        "description": "Almacenamiento, documentación y seguimiento en cada etapa."
+      },
+      {
+        "title": "Carga Aérea",
+        "description": "Agilidad con soporte regulatorio y rastreo."
+      }
     ]
   },
   "services": {
@@ -44,9 +54,18 @@
       "Gestión y supervisión de los procesos administrativos"
     ],
     "focusAreas": [
-      { "title": "Consultoría regulatoria", "description": "Licencias, RADAR, Drawback y organismos autorizantes." },
-      { "title": "Importación completa", "description": "Desde la planificación tributaria hasta el despacho aduanero." },
-      { "title": "Exportación ágil", "description": "DU-E, certificados y seguimiento de embarque." }
+      {
+        "title": "Consultoría regulatoria",
+        "description": "Licencias, RADAR, Drawback y organismos autorizantes."
+      },
+      {
+        "title": "Importación completa",
+        "description": "Desde la planificación tributaria hasta el despacho aduanero."
+      },
+      {
+        "title": "Exportación ágil",
+        "description": "DU-E, certificados y seguimiento de embarque."
+      }
     ],
     "desembaraco": {
       "title": "Despacho Aduanero",
@@ -104,9 +123,18 @@
       "title": "COBERTURA",
       "description": "Experiencia con los principales organismos reguladores y autorizantes del comercio exterior brasileño, con procesos alineados a los requisitos legales y operacionales.",
       "cards": [
-        { "title": "Organismos autorizantes", "text": "DECEX, ANVISA, MAPA, IBAMA y más." },
-        { "title": "Conformidad", "text": "Trámites administrativos y licencias." },
-        { "title": "Regulación", "text": "Seguimiento normativo en cada operación." }
+        {
+          "title": "Organismos autorizantes",
+          "text": "DECEX, ANVISA, MAPA, IBAMA y más."
+        },
+        {
+          "title": "Conformidad",
+          "text": "Trámites administrativos y licencias."
+        },
+        {
+          "title": "Regulación",
+          "text": "Seguimiento normativo en cada operación."
+        }
       ]
     },
     "agenciesLabel": "Organismos y agencias con que trabajamos",
@@ -159,5 +187,9 @@
     "privacyLink": "Política de Privacidad",
     "accept": "Aceptar cookies",
     "decline": "Rechazar"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "back": "Volver al inicio"
   }
 }
