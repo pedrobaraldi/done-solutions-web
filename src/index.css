@@ -130,14 +130,70 @@
     background-attachment: fixed;
   }
 
+  html {
+    /* iOS/Android não aumentam a fonte sozinhos ao girar o celular */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
   body {
     @apply text-foreground font-sans antialiased;
-    font-family: 'Open Sans', sans-serif;
     background: transparent;
+    /* Palavras longas (ex.: espanhol/português) quebram em vez de vazar da tela */
+    overflow-wrap: break-word;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    @apply font-display;
+    /* Títulos com linhas equilibradas em qualquer idioma (ignorado em navegadores antigos) */
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  /* Safari < 16 não entende overflow: clip — evita rolagem lateral nesses iPhones */
+  @supports not (overflow: clip) {
+    body {
+      overflow-x: hidden;
+    }
+  }
+
+  /* ---------- Ajustes por idioma (definido em <html lang>) ---------- */
+
+  /* Línguas latinas: hifenização automática em telas pequenas, onde as colunas são estreitas */
+  @media (max-width: 767px) {
+    html:is([lang|="pt"], [lang|="es"], [lang|="en"]) :is(p, li) {
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+
+  /* Chinês: Montserrat/Open Sans não têm ideogramas, então usamos fontes CJK do sistema,
+     mais respiro entre linhas e quebra de linha seguindo as regras do chinês. */
+  html[lang|="zh"] body {
+    font-family: 'Open Sans', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+    line-break: strict;
+    word-break: normal;
+    letter-spacing: 0.01em;
+  }
+
+  html[lang|="zh"] :is(h1, h2, h3, h4, h5, h6, .font-display) {
+    font-family: 'Montserrat', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  html[lang|="zh"] :is(h1, h2, h3) {
+    line-height: 1.35;
+  }
+
+  html[lang|="zh"] :is(p, li) {
+    line-height: 1.75;
+  }
+
+  html[lang|="zh"] .leading-snug {
+    line-height: 1.6;
   }
 }
 

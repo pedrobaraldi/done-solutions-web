@@ -10,7 +10,8 @@
     "title": "The Most Complete, Efficient and Qualified Structure in",
     "titleHighlight": "International Trade",
     "cta1": "Request a Quote",
-    "cta2": "Explore Services"
+    "cta2": "Explore Services",
+    "imgAlt": "Cargo ship on the ocean at sunset"
   },
   "about": {
     "label": "About Us",
@@ -27,9 +28,18 @@
       "description": "From port to warehouse, from air freight to documentation — operational presence across the entire foreign trade chain."
     },
     "highlights": [
-      { "title": "Maritime Transport", "description": "Full coordination at ports and container operations." },
-      { "title": "Customs Logistics", "description": "Storage, documentation and follow-up at every step." },
-      { "title": "Air Freight", "description": "Speed with regulatory support and tracking." }
+      {
+        "title": "Maritime Transport",
+        "description": "Full coordination at ports and container operations."
+      },
+      {
+        "title": "Customs Logistics",
+        "description": "Storage, documentation and follow-up at every step."
+      },
+      {
+        "title": "Air Freight",
+        "description": "Speed with regulatory support and tracking."
+      }
     ]
   },
   "services": {
@@ -44,9 +54,18 @@
       "Management and supervision of administrative processes"
     ],
     "focusAreas": [
-      { "title": "Regulatory consulting", "description": "Licenses, RADAR, Drawback and granting authorities." },
-      { "title": "Full import service", "description": "From tax planning to customs clearance." },
-      { "title": "Agile export", "description": "DU-E, certificates and shipment tracking." }
+      {
+        "title": "Regulatory consulting",
+        "description": "Licenses, RADAR, Drawback and granting authorities."
+      },
+      {
+        "title": "Full import service",
+        "description": "From tax planning to customs clearance."
+      },
+      {
+        "title": "Agile export",
+        "description": "DU-E, certificates and shipment tracking."
+      }
     ],
     "desembaraco": {
       "title": "Customs Clearance",
@@ -104,9 +123,18 @@
       "title": "COVERAGE",
       "description": "Experience working with Brazil's main regulatory and granting authorities in foreign trade, with processes aligned to legal and operational requirements.",
       "cards": [
-        { "title": "Granting authorities", "text": "DECEX, ANVISA, MAPA, IBAMA and more." },
-        { "title": "Compliance", "text": "Administrative procedures and licenses." },
-        { "title": "Regulation", "text": "Regulatory monitoring in every operation." }
+        {
+          "title": "Granting authorities",
+          "text": "DECEX, ANVISA, MAPA, IBAMA and more."
+        },
+        {
+          "title": "Compliance",
+          "text": "Administrative procedures and licenses."
+        },
+        {
+          "title": "Regulation",
+          "text": "Regulatory monitoring in every operation."
+        }
       ]
     },
     "agenciesLabel": "Agencies and bodies we work with",
@@ -159,5 +187,9 @@
     "privacyLink": "Privacy Policy",
     "accept": "Accept cookies",
     "decline": "Decline"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to home"
   }
 }

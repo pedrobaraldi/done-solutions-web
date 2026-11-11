@@ -3,17 +3,19 @@ import { openCookieSettings } from "@/lib/analytics";
 import { Phone, Mail, MapPin, Linkedin, Instagram, MessageCircle, Facebook } from "lucide-react";
 import logoBranca from "@/assets/logo-branca.png";
 import { useTranslation } from "react-i18next";
+import { currentLang } from "@/i18n";
 
 const LANGS = [
-  { code: "pt", flag: "br" },
-  { code: "en", flag: "us" },
-  { code: "es", flag: "es" },
-  { code: "zh", flag: "cn" },
+  { code: "pt", flag: "br", label: "Português" },
+  { code: "en", flag: "us", label: "English" },
+  { code: "es", flag: "es", label: "Español" },
+  { code: "zh", flag: "cn", label: "中文" },
 ];
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const langCode = currentLang();
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -63,7 +65,7 @@ const Footer = () => {
                   <MapPin className="w-4 h-4 text-accent" />
                   <span className="font-semibold">São Paulo</span>
                 </div>
-                <p className="text-primary-foreground/70 ml-6">Rua Salem Bechara, 140 – Sala 908</p>
+                <p className="text-primary-foreground/70 ml-6 break-words">Rua Salem Bechara, 140 – Sala 908</p>
                 <p className="text-primary-foreground/70 ml-6">Centro, Osasco – SP</p>
               </div>
               <div className="pt-2">
@@ -78,8 +80,8 @@ const Footer = () => {
               </div>
               <div>
                 <a href="mailto:contato@donesolucoes.com.br" className="flex items-center gap-2 text-primary-foreground/70 hover:text-accent transition-colors">
-                  <Mail className="w-4 h-4" />
-                  <span>contato@donesolucoes.com.br</span>
+                  <Mail className="w-4 h-4 shrink-0" />
+                  <span className="break-all">contato@donesolucoes.com.br</span>
                 </a>
               </div>
             </div>
@@ -106,12 +108,14 @@ const Footer = () => {
             {/* Language flags */}
             <div className="flex items-center gap-1.5">
               {LANGS.map((lang) => {
-                const isActive = i18n.language === lang.code;
+                const isActive = langCode === lang.code;
                 return (
                   <button
                     key={lang.code}
                     onClick={() => i18n.changeLanguage(lang.code)}
-                    aria-label={lang.code.toUpperCase()}
+                    aria-label={lang.label}
+                    aria-pressed={isActive}
+                    title={lang.label}
                     className={`w-7 h-7 rounded-full overflow-hidden border transition-all duration-200 ${
                       isActive
                         ? "border-accent/70 opacity-100"

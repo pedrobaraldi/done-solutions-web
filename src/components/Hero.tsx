@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Navio cargueiro no oceano ao pôr do sol"
+          alt={t("hero.imgAlt")}
           className="w-full h-full object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary/90" />
@@ -32,12 +32,12 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-block mb-8"
           >
-            <span className="border border-primary-foreground/30 px-4 py-2 rounded-full font-display font-medium text-primary-foreground/90 text-sm leading-snug">
+            <span className="inline-block border border-primary-foreground/30 px-4 py-2 rounded-full font-display font-medium text-primary-foreground/90 text-xs sm:text-sm leading-snug">
               {t("hero.badge")}
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-10">
+          <h1 className="font-display font-bold text-[1.75rem] min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-10">
             {t("hero.title")}{" "}
             <span className="text-gradient-gold">{t("hero.titleHighlight")}</span>
           </h1>
@@ -46,12 +46,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center"
           >
-            <Button variant="hero" size="xl" asChild>
+            <Button variant="hero" size="xl" className="h-auto min-h-14 py-3 px-6 sm:px-10 whitespace-normal text-center text-base sm:text-lg" asChild>
               <a href="#contato">{t("hero.cta1")}</a>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
+            <Button variant="heroOutline" size="xl" className="h-auto min-h-14 py-3 px-6 sm:px-10 whitespace-normal text-center text-base sm:text-lg" asChild>
               <a href="#servicos">{t("hero.cta2")}</a>
             </Button>
           </motion.div>

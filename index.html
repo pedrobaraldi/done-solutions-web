@@ -1,8 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ajusta o idioma do documento antes do app carregar (evita o navegador oferecer tradução errada) -->
+    <script>
+      (function () {
+        var map = { pt: "pt-BR", en: "en", es: "es", zh: "zh-CN" };
+        var pick = function (c) { return c ? String(c).toLowerCase().split(/[-_]/)[0] : ""; };
+        var lang = "";
+        try { lang = pick(new URLSearchParams(location.search).get("lang")); } catch (e) {}
+        if (!map[lang]) { try { lang = pick(localStorage.getItem("i18n-lang")); } catch (e) {} }
+        if (!map[lang]) { var m = document.cookie.match(/(?:^|;\s*)i18n-lang=([^;]+)/); lang = pick(m && m[1]); }
+        if (!map[lang]) {
+          var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || navigator.userLanguage];
+          for (var i = 0; i < list.length; i++) { if (map[pick(list[i])]) { lang = pick(list[i]); break; } }
+        }
+        document.documentElement.lang = map[lang] || "en";
+      })();
+    </script>
+    <link rel="alternate" hreflang="pt-BR" href="https://done-solutions.com/?lang=pt" />
+    <link rel="alternate" hreflang="en" href="https://done-solutions.com/?lang=en" />
+    <link rel="alternate" hreflang="es" href="https://done-solutions.com/?lang=es" />
+    <link rel="alternate" hreflang="zh-CN" href="https://done-solutions.com/?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://done-solutions.com/" />
     <!-- TODO: Set the document title to the name of your application -->
     <title>Done Solutions</title>
     <meta name="description" content="Done Solutions" />

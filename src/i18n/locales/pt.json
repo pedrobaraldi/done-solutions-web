@@ -10,7 +10,8 @@
     "title": "A Mais Completa, Eficiente e Qualificada Estrutura em",
     "titleHighlight": "Comércio Internacional",
     "cta1": "Solicitar Orçamento",
-    "cta2": "Conhecer Serviços"
+    "cta2": "Conhecer Serviços",
+    "imgAlt": "Navio cargueiro no oceano ao pôr do sol"
   },
   "about": {
     "label": "Quem Somos",
@@ -27,9 +28,18 @@
       "description": "Do porto ao armazém, do frete aéreo à documentação — presença operacional em toda a cadeia do comércio exterior."
     },
     "highlights": [
-      { "title": "Modal Marítimo", "description": "Coordenação completa em portos e operações de contêiner." },
-      { "title": "Logística Aduaneira", "description": "Armazenagem, documentação e follow-up em cada etapa." },
-      { "title": "Modal Aéreo", "description": "Agilidade com suporte regulatório e rastreamento." }
+      {
+        "title": "Modal Marítimo",
+        "description": "Coordenação completa em portos e operações de contêiner."
+      },
+      {
+        "title": "Logística Aduaneira",
+        "description": "Armazenagem, documentação e follow-up em cada etapa."
+      },
+      {
+        "title": "Modal Aéreo",
+        "description": "Agilidade com suporte regulatório e rastreamento."
+      }
     ]
   },
   "services": {
@@ -44,9 +54,18 @@
       "Gerenciamento e supervisão dos processos administrativos"
     ],
     "focusAreas": [
-      { "title": "Consultoria regulatória", "description": "Licenças, Radar, Drawback e órgãos anuentes." },
-      { "title": "Importação completa", "description": "Do planejamento tributário ao desembaraço." },
-      { "title": "Exportação ágil", "description": "DU-E, certificados e acompanhamento de embarque." }
+      {
+        "title": "Consultoria regulatória",
+        "description": "Licenças, Radar, Drawback e órgãos anuentes."
+      },
+      {
+        "title": "Importação completa",
+        "description": "Do planejamento tributário ao desembaraço."
+      },
+      {
+        "title": "Exportação ágil",
+        "description": "DU-E, certificados e acompanhamento de embarque."
+      }
     ],
     "desembaraco": {
       "title": "Desembaraço Aduaneiro",
@@ -104,9 +123,18 @@
       "title": "ATUAÇÃO",
       "description": "Experiência junto aos principais órgãos reguladores e anuentes do comércio exterior, com processos alinhados às exigências legais e operacionais.",
       "cards": [
-        { "title": "Órgãos anuentes", "text": "DECEX, ANVISA, MAPA, IBAMA e mais." },
-        { "title": "Conformidade", "text": "Tratamentos administrativos e licenças." },
-        { "title": "Regulação", "text": "Acompanhamento normativo em cada operação." }
+        {
+          "title": "Órgãos anuentes",
+          "text": "DECEX, ANVISA, MAPA, IBAMA e mais."
+        },
+        {
+          "title": "Conformidade",
+          "text": "Tratamentos administrativos e licenças."
+        },
+        {
+          "title": "Regulação",
+          "text": "Acompanhamento normativo em cada operação."
+        }
       ]
     },
     "agenciesLabel": "Órgãos e agências com que atuamos",
@@ -159,5 +187,9 @@
     "privacyLink": "Política de Privacidade",
     "accept": "Aceitar cookies",
     "decline": "Recusar"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "back": "Voltar para o início"
   }
 }

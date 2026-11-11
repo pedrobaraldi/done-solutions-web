@@ -1,0 +1,24 @@
+/* Só as 4 bandeiras usadas no seletor de idioma (o pacote flag-icons completo tem ~270 e pesa ~100 kB). */
+.fi {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.333333em;
+  line-height: 1em;
+}
+.fi::before {
+  content: "\00a0";
+}
+.fi.fis {
+  width: 1em;
+}
+.fi-br { background-image: url("flag-icons/flags/4x3/br.svg"); }
+.fi-br.fis { background-image: url("flag-icons/flags/1x1/br.svg"); }
+.fi-us { background-image: url("flag-icons/flags/4x3/us.svg"); }
+.fi-us.fis { background-image: url("flag-icons/flags/1x1/us.svg"); }
+.fi-es { background-image: url("flag-icons/flags/4x3/es.svg"); }
+.fi-es.fis { background-image: url("flag-icons/flags/1x1/es.svg"); }
+.fi-cn { background-image: url("flag-icons/flags/4x3/cn.svg"); }
+.fi-cn.fis { background-image: url("flag-icons/flags/1x1/cn.svg"); }
