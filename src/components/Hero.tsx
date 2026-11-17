@@ -19,7 +19,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 text-center">
+      {/* pb reserva a altura da onda (120/1440 da largura ≈ 8.4vw) para os botões nunca ficarem por baixo dela */}
+      <div className="container mx-auto px-4 relative z-10 text-center pt-16 pb-[calc(8.4vw+3rem)]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +38,7 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold text-[1.75rem] min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-10">
+          <h1 className="font-display font-bold text-[1.75rem] min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-primary-foreground leading-tight mb-10">
             {t("hero.title")}{" "}
             <span className="text-gradient-gold">{t("hero.titleHighlight")}</span>
           </h1>
