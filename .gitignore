@@ -50,3 +50,6 @@ coverage
 # Arquivos temporarios do sistema
 Thumbs.db
 Desktop.ini
+
+# Pacote gerado para upload na Hostinger (gerado a partir do build)
+site-hostinger.zip
